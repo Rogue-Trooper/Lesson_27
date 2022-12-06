@@ -1,16 +1,21 @@
 class Calculator:
-    @staticmethod
-    def sum(a, b):
-        return a + b
+    def __init__(self, a=0, b=0):
+        self.a = a
+        self.b = b
+        self.count = 0
 
-    @staticmethod
-    def sub(a, b):
-        return a - b
+    def sub(self):
+        self.count += 1
+        return self.a - self.b
 
-    @staticmethod
-    def mul(a, b):
-        return a * b
+    def mul(self):
+        self.count += 1
+        return self.a * self.b
 
-    @staticmethod
-    def div(a, b):
-        return a // b
+    def div(self):
+        self.count += 1
+        return self.a // self.b
+
+    def sum(self):
+        self.count += 1
+        return self.a + self.b
