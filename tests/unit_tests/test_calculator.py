@@ -5,61 +5,60 @@ from model.calculator import Calculator
 
 class TestCalculator(unittest.TestCase):
 
-    def setUp(self):
-        print("setUp")
-        self.calc = Calculator()
+    # calc = Calculator()
+    @classmethod
+    def setUpClass(cls):
+        # print("setUpClass")
+        cls.calc = Calculator()
 
-    def tearDown(self):
-        print("tearDown")
-        del self.calc
+    @classmethod
+    def tearDownClass(cls):
+        # print("tearDownClass")
+        del cls.calc
 
-    # AAA
+
     def test_sum(self):
         print("test_sum")
         # arrange
-        self.calc.a = 10
-        self.calc.b = 20
+        TestCalculator.calc.a = 10
+        TestCalculator.calc.b = 20
         expected = 30
 
         # action
-        actual = self.calc.sum()
+        actual = TestCalculator.calc.sum()
 
         # assert
         self.assertEqual(expected, actual)
-        self.assertEqual(1, self.calc.count)
 
     def test_sub(self):
         print("test_sub")
-        self.calc.a = 10
-        self.calc.b = 7
+        TestCalculator.calc.a = 10
+        TestCalculator.calc.b = 7
         expected = 3
 
-        actual = self.calc.sub()
+        actual = TestCalculator.calc.sub()
 
         self.assertEqual(expected, actual)
-        self.assertEqual(1, self.calc.count)
 
     def test_mul(self):
         print("test_mul")
-        self.calc.a = 8
-        self.calc.b = 7
+        TestCalculator.calc.a = 8
+        TestCalculator.calc.b = 7
         expected = 56
 
-        actual = self.calc.mul()
+        actual = TestCalculator.calc.mul()
 
         self.assertEqual(expected, actual)
-        self.assertEqual(1, self.calc.count)
 
     def test_div(self):
         print("test_div")
-        self.calc.a = 18
-        self.calc.b = 7
+        TestCalculator.calc.a = 18
+        TestCalculator.calc.b = 7
         expected = 2
 
-        actual = self.calc.div()
+        actual = TestCalculator.calc.div()
 
         self.assertEqual(expected, actual)
-        self.assertEqual(1, self.calc.count)
 
 
 if __name__ == "__main__":
